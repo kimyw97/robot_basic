@@ -111,6 +111,7 @@ int main(void)
 	  HAL_UART_Transmit(&huart4, txBuffer,strlen((char *)txBuffer), HAL_MAX_DELAY);
 	  HAL_Delay(1000);
 	  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_10, GPIO_PIN_SET);
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
