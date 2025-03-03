@@ -1,0 +1,53 @@
+node_modules/
+**/node_modules/
+
+# Build files
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.o
+*.d
+*.a
+*.axf
+*.dpu
+*.sct
+*.icf
+
+# Build directories
+build/
+Debug/
+Release/
+
+# IDE specific files
+*.uvoptx
+*.uvprojx
+*.dep
+*.layout
+*.cproject
+*.project
+*.launch
+*.settings/
+*.suo
+*.swp
+*.bak
+*.tmp
+*.log
+*.dsk
+
+# Keil MDK files
+RTE/
+*.axf
+*.uvgui.*
+
+# SW4STM32/Eclipse files
+*.ac6
+
+# CLion/CMake files
+cmake-build-debug/
+CMakeLists.txt.user
+
+# Miscellaneous
+*.pyc
+__pycache__/
