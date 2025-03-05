@@ -1,6 +1,6 @@
 node_modules/
 **/node_modules/
-
+**/.metadata
 # Build files
 *.elf
 *.bin
@@ -43,6 +43,7 @@ RTE/
 
 # SW4STM32/Eclipse files
 *.ac6
+
 
 # CLion/CMake files
 cmake-build-debug/
