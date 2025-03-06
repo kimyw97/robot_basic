@@ -1,6 +1,10 @@
 node_modules/
 **/node_modules/
 **/.metadata
+**/install
+**/build
+**/log
+
 # Build files
 *.elf
 *.bin
