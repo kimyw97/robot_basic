@@ -81,9 +81,43 @@ ros2_ws/
    ros2 launch <package_name> <launch_file.launch>
    ```
 
-## ROS2 개발 순서
+## ROS2 topic, service개발 순서
 
 1. 패키지 생성
+
+2. 코드 생성(package 디렉토리에 src에서 작업해야함)
+
+3. 의존성 주입
+
+- package.xml
+
+- CMakeLists.txt
+
+관련 패키지 찾기, 실행 명령어와 소스코드 연결, 설치 등의 명령을 넣어줌
+
+4. 의존성 확인
+
+```
+rosdep install -i --from-path src --rosdistro humble -y
+```
+
+5. 빌드
+
+6. 설치
+
+7. 실행
+
+## ROS2 action 개발 순서
+
+1. .action 생성
+
+```
+# Request
+---
+# Result
+---
+# Feedback
+```
 
 2. 코드 생성(package 디렉토리에 src에서 작업해야함)
 
