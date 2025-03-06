@@ -81,43 +81,11 @@ ros2_ws/
    ros2 launch <package_name> <launch_file.launch>
    ```
 
-## ROS2 topic, service개발 순서
+## ROS2 개발 순서
 
 1. 패키지 생성
 
-2. 코드 생성(package 디렉토리에 src에서 작업해야함)
-
-3. 의존성 주입
-
-- package.xml
-
-- CMakeLists.txt
-
-관련 패키지 찾기, 실행 명령어와 소스코드 연결, 설치 등의 명령을 넣어줌
-
-4. 의존성 확인
-
-```
-rosdep install -i --from-path src --rosdistro humble -y
-```
-
-5. 빌드
-
-6. 설치
-
-7. 실행
-
-## ROS2 action 개발 순서
-
-1. .action 생성
-
-```
-# Request
----
-# Result
----
-# Feedback
-```
+1.1 인터페이스 생성(action의 경우 필수)
 
 2. 코드 생성(package 디렉토리에 src에서 작업해야함)
 
@@ -140,3 +108,46 @@ rosdep install -i --from-path src --rosdistro humble -y
 6. 설치
 
 7. 실행
+
+# launch 파일 생성
+
+python,xml, yaml 으로 생성 가능
+=> 노드를 한번에 띄워주는 거
+예제
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='turtlesim',
+            namespace='turtlesim1',
+            executable='turtlesim_node',
+            name='sim'
+        ),
+        Node(
+            package='turtlesim',
+            namespace='turtlesim2',
+            executable='turtlesim_node',
+            name='sim'
+        ),
+        Node(
+            package='turtlesim',
+            executable='mimic',
+            name='mimic',
+            remappings=[
+                ('/input/pose', '/turtlesim1/turtle1/pose'),
+                ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+            ]
+        )
+    ])
+```
+
+### 실행
+
+```sh
+ros2 launch turtlesim_mimic_launch.py
+ros2 launch <package_name> <launch_file_name>
+```
