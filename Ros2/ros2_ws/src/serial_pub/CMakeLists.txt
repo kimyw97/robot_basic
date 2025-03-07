@@ -8,7 +8,13 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msg REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(serial_pub src/serial_publisher.cpp)
+ament_target_dependencies(serial_pub rclcpp std_msgs)
+
+add_executable(serial_subscriber src/serial_sub.cpp)
+ament_target_dependencies(serial_subscriber rclcpp std_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -21,5 +27,9 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
+install(TARGETS
+  serial_pub
+  serial_subscriber
+  DESTINATION lib/${PROJECT_NAME}
+)
 ament_package()
