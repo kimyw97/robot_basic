@@ -1,0 +1,1 @@
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_29d98.dir/CheckFunctionExists.c.o  -o cmTC_29d98  -lpthreads 
