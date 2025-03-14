@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kyw/VSCode/robot_basic/Ros1/MCL/04_motion_sensing_ex'
+relocations:     []
+...
